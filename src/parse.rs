@@ -181,6 +181,8 @@ fn parse_inner<'c>(s: &str, decode: bool) -> Result<Cookie<'c>, ParseError> {
                     cookie.same_site = Some(SameSite::Strict);
                 } else if v.eq_ignore_ascii_case("lax") {
                     cookie.same_site = Some(SameSite::Lax);
+                } else if v.eq_ignore_ascii_case("none") {
+                    cookie.same_site = Some(SameSite::None);
                 } else {
                     // We do nothing here, for now. When/if the `SameSite`
                     // attribute becomes standard, the spec says that we should
